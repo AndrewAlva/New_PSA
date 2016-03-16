@@ -12,7 +12,21 @@
 
 	$formcontent="De: $name \n Empresa: $business \n Mensaje: $message";
 	$mailheader = "From: $email \r\n";
-	$mail_sent = mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
+	
+	if($subject == false || $name == false || $business == false || $message == false || $email == false){
+		$mail_sent = false;
+		
+		?>
+
+		<script type="text/javascript">
+			alert('Mensaje no enviado, todos los campos son obligatorios.');
+		</script>
+
+		<?php
+
+	} else {
+		$mail_sent = mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
+	}
 	
 
 	if ($mail_sent == true){ ?>
