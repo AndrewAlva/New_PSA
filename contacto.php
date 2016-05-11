@@ -10,7 +10,7 @@
 
 	$email = $_POST['correo'];
 
-	$formcontent="De: $name \n Empresa: $business \n Mensaje: $message";
+	$formcontent="De: $name \n Correo: $email \n Empresa: $business \n Mensaje: $message";
 	$mailheader = "From: $email \r\n";
 	
 	if($subject == false || $name == false || $business == false || $message == false || $email == false){
